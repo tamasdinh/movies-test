@@ -1,5 +1,6 @@
 import { useReducer, useState } from 'react'
 import '../styles/globals.css'
+import Script from 'next/script'
 import { CartState } from '../components/CartState'
 import { PopularState } from '../components/PopularState'
 import { ScrollState } from '../components/ScrollState'
@@ -66,6 +67,21 @@ function MyApp({ Component, pageProps }) {
     <CartState.Provider value={{ cartContents, modifyCart }}>
       <PopularState.Provider value={{ popular, updatePopular }}>
         <ScrollState.Provider value={{ scrollPosition, setScrollPosition }}>
+          {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+          <Script
+            strategy='lazyOnload'
+            src={`https://www.googletagmanager.com/gtag/js?id=G-4LMST4G45L`}
+          />
+          <Script id='ga4-analytics'>
+            {
+              `
+                window.dataLayer = window.dataLayer || []
+                function gtag(){dataLayer.push(arguments)}
+                gtag('js', new Date());
+                gtag('config', 'G-4LMST4G45L')
+              `
+            }
+          </Script>
           <Component {...pageProps} />
         </ScrollState.Provider>
       </PopularState.Provider>
