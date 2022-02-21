@@ -9,9 +9,9 @@ export const CartCorner = () => {
     const { setScrollPosition } = useContext(ScrollState)
     const router = useRouter()
 
-    useEffect(() => {
-        console.log('cartContents in CartCorner', cartContents)
-    }, [cartContents])
+    // useEffect(() => {
+    //     console.log('cartContents in CartCorner', cartContents)
+    // }, [cartContents])
 
     const onIconClick = () => {
         const scrollPosition = window.scrollY

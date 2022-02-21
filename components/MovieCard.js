@@ -18,6 +18,18 @@ export function MovieCard(props) {
         setShowOverlay(false)
     }
 
+    const sendEvent = ({ id, title }) => {
+        const eventContent = {
+            story: 'This is just a test',
+            category: 'test',
+            button: 'addToCart',
+            id,
+            title
+        }
+        console.log('Sending event', eventContent)
+        window.gtag('event', 'testEvent', eventContent)
+    }
+
     const addItem = (event) => {
         event.preventDefault()
         const { id, title, poster_path, overview } = data
@@ -25,6 +37,7 @@ export function MovieCard(props) {
             action: 'addItem',
             newItem: { id, title, poster_path, overview, quantity: 1 }
         })
+        sendEvent({ id, title })
     }
 
     const updateScrollPosition = () => {
@@ -46,7 +59,7 @@ export function MovieCard(props) {
                                 <p className="text-white font-light opacity-90">See details</p>
                             </div>
                         }
-                    <Poster title={data.title} poster_path={data.poster_path}/>
+                        <Poster title={data.title} poster_path={data.poster_path} />
                     </div>
                     <button
                         type="button"

@@ -18,7 +18,7 @@ export default function Home() {
   const getNewPage = async () => {
     const scrollPosition = window.scrollY
     setScrollPosition(scrollPosition)
-    console.log('setting scroll position in getNewPage to', scrollPosition)
+    // console.log('setting scroll position in getNewPage to', scrollPosition)
     const newResults = await TmdbHandler.getPopular(popular.page + 1)
     updatePopular(newResults)
   }
@@ -35,7 +35,7 @@ export default function Home() {
     setTimeout(() => {
       if (scrollPosition !== 0) {
         window.scrollTo({ top: scrollPosition })
-        console.log('scrolling to', scrollPosition)
+        // console.log('scrolling to', scrollPosition)
       }
     }, 50)
   }, [popular, scrollPosition])
