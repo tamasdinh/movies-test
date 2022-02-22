@@ -1,4 +1,5 @@
 import { useContext } from "react"
+import Head from 'next/head'
 import { CartState } from "../components/CartState"
 import { CartItem } from "../components/CartItem"
 import { ContactForm } from "../components/ContactForm"
@@ -11,19 +12,24 @@ export default function Cart() {
 
     return (
         <>
-            <Header headerText="Cart"/>
+            <Head>
+                <title>Cart</title>
+                <meta name="description" content="cart" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <Header headerText="Cart" />
             <main className="max-w-2xl mx-auto px-8">
                 {cartContents.length === 0 &&
                     <div className="flex flex-col justify-center items-center min-h-screen">
                         <h1 className="text-3xl font-light text-center text-slate-800">Your cart is empty. Go select titles to add to your cart!</h1>
-                        <BackToBrowse message="Browse popular titles" direction="forward"/>
+                        <BackToBrowse message="Browse popular titles" direction="forward" />
                     </div>
                 }
                 {cartContents.length > 0 &&
                     <>
                         <div className="h-16"></div>
                         <div>
-                            <BackToBrowse message="Go back to browsing" direction="back"/>
+                            <BackToBrowse message="Go back to browsing" direction="back" />
                             <h1 className="text-lg font-bold mt-10 mb-5 text-slate-800">Your tickets</h1>
                             {cartContents.map((cartItem, index) => (
                                 <div key={cartItem.id}>

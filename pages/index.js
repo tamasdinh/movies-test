@@ -43,7 +43,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Movies GA4 test</title>
+        <title>Popular titles</title>
         <meta name="description" content="This a test app for demoing GA4 event tracking" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
