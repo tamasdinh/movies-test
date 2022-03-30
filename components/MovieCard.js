@@ -19,7 +19,7 @@ export function MovieCard(props) {
     }
 
     const sendEvents = () => {
-        const longEventContent = {
+        const tooLongEventContent = {
             test01: "test01",
             test02: "test02",
             test03: "test03",
@@ -45,6 +45,7 @@ export function MovieCard(props) {
             test23: "test23",
             test24: "test24",
             test25: "test25",
+            test26: "test26",
         }
 
         const nestedEventContent = {
@@ -58,8 +59,8 @@ export function MovieCard(props) {
             }
         }
 
-        console.log('Sending long event', longEventContent)
-        window.gtag('event', 'longEvent', longEventContent)
+        console.log('Sending too long event', tooLongEventContent)
+        window.gtag('event', 'tooLongEvent', tooLongEventContent)
 
         console.log('Sending nested event', nestedEventContent)
         window.gtag('event', 'nestedEvent', nestedEventContent)
