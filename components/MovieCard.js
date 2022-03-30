@@ -18,16 +18,51 @@ export function MovieCard(props) {
         setShowOverlay(false)
     }
 
-    const sendEvent = ({ id, title }) => {
-        const eventContent = {
-            story: 'This is just a test',
-            category: 'test',
-            button: 'addToCart',
-            id,
-            title
+    const sendEvents = () => {
+        const longEventContent = {
+            test01: "test01",
+            test02: "test02",
+            test03: "test03",
+            test04: "test04",
+            test05: "test05",
+            test06: "test06",
+            test07: "test07",
+            test08: "test08",
+            test09: "test09",
+            test10: "test10",
+            test11: "test11",
+            test12: "test12",
+            test13: "test13",
+            test14: "test14",
+            test15: "test15",
+            test16: "test16",
+            test17: "test17",
+            test18: "test18",
+            test19: "test19",
+            test20: "test20",
+            test21: "test21",
+            test22: "test22",
+            test23: "test23",
+            test24: "test24",
+            test25: "test25",
         }
-        console.log('Sending event', eventContent)
-        window.gtag('event', 'testEvent', eventContent)
+
+        const nestedEventContent = {
+            test01: {
+                test01a: "test01a",
+                test01b: "test01b",
+                test01c: "test01c",
+                test01d: "test01d",
+                test01e: "test01e",
+                // test01f: "test01f",
+            }
+        }
+
+        console.log('Sending long event', longEventContent)
+        window.gtag('event', 'longEvent', longEventContent)
+
+        console.log('Sending nested event', nestedEventContent)
+        window.gtag('event', 'nestedEvent', nestedEventContent)
     }
 
     const addItem = (event) => {
@@ -37,7 +72,7 @@ export function MovieCard(props) {
             action: 'addItem',
             newItem: { id, title, poster_path, overview, quantity: 1 }
         })
-        sendEvent({ id, title })
+        sendEvents({ id, title })
     }
 
     const updateScrollPosition = () => {
